@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Blog.Data.Mappings;
 
-// Classe para definir a configração do Map, usnado como base a Model User
+// Classe para definir a configração do Map, usando como base a Model User
 public class UserMap : IEntityTypeConfiguration<User>
 {
     public void Configure(EntityTypeBuilder<User> builder)
@@ -13,7 +13,7 @@ public class UserMap : IEntityTypeConfiguration<User>
         builder.ToTable("User");
         // definindo a PK        
         builder.HasKey(x => x.Id);
-        // Identity
+        // Geração de valor da PK
         builder.Property(x => x.Id)
             .ValueGeneratedOnAdd()
             .UseIdentityColumn();
