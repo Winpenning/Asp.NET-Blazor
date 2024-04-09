@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 namespace Blog.Controllers;
 [ApiController]
+[Route("v1")]
 public class CategoryController : ControllerBase
 {
     [HttpGet("categories")]
@@ -13,37 +14,25 @@ public class CategoryController : ControllerBase
         var categories = await context.Categories.ToListAsync();
         if (categories != null)
         {
-            try
-            {
-                return Ok(new ResultViewModel<List<Category>>(categories));
-            }
-            catch
-            {
-                return StatusCode(500, new ResultViewModel<List<Category>>("Falha interna no servidor."));
-            }
-        }
-        else
-        {
-            return NotFound();
-        }
-        
+            try 
+            { return Ok(new ResultViewModel<List<Category>>(categories)); }
+            
+            catch 
+            { return StatusCode(500, new ResultViewModel<List<Category>>("0x500 - Internal Server Error.")); }
+        } 
+        return NotFound();
     }
 
     [HttpGet("categories/{id:int}")]
     public async Task<IActionResult> GetByIdAsync([FromRoute]int id,[FromServices] BlogDataContext context)
     {
         var category = await context.Categories.FirstOrDefaultAsync(x => x.Id == id);
-
         if (category == null)
-            return StatusCode(404);
+            return NotFound();
         try
-        {
-            return Ok(new ResultViewModel<Category>(category));
-        }
+        { return Ok(new ResultViewModel<Category>(category)); }
         catch (Exception e)
-        {
-            return StatusCode(500, new ResultViewModel<List<Category>>("Falha interna no servidor."));
-        }
+        { return StatusCode(500, new ResultViewModel<List<Category>>("0x501 - Internal Server Error.")); }
     }
 
     [HttpPost("categories")]
@@ -53,44 +42,39 @@ public class CategoryController : ControllerBase
     {
         if (!ModelState.IsValid)
             return BadRequest();
+        var category = new Category(0, model.Name, model.Slug);
         try
         {
-            var category = new Category
-            {
-                Id = 0,
-                Name = model.Name,
-                Slug = model.Slug,
-            };
             await context.Categories.AddAsync(category);
             await context.SaveChangesAsync();
-
-            return Created($"categories/{category.Id}",category);
+            return Created($"categories/{category.Id}", new ResultViewModel<Category>(category));
         }
         catch (DbUpdateException ex)
         {
             return StatusCode(500);
         }
     }
+
     [HttpPut("categories/{id:int}")]
     public async Task<IActionResult> PutAsync([FromRoute] int id,[FromBody] CategoryViewModel model, [FromServices] BlogDataContext context)
     {
         var category =  await context.Categories.FirstOrDefaultAsync(x => x.Id == id);
         if (category == null)
-            return StatusCode(404);
+            return NotFound();
         category.Name = model.Name;
         category.Slug = model.Slug;
         context.Categories.Update(category);
         await context.SaveChangesAsync();
-        return Ok(model);
+        return Ok(new ResultViewModel<Category>(category));
     }
     [HttpDelete("categories/{id:int}")]
     public async Task<IActionResult> DeleteAsync([FromRoute] int id, [FromServices] BlogDataContext context)
     {
         var category =  await context.Categories.FirstOrDefaultAsync(x => x.Id == id);
         if (category == null)
-            return StatusCode(404);
+            return NotFound();
         context.Categories.Remove(category);
         await context.SaveChangesAsync();
-        return StatusCode(200, category);
+        return Ok(new ResultViewModel<Category>(category));
     }
 }
