@@ -26,7 +26,6 @@ public class CategoryMap : IEntityTypeConfiguration<Category>
             .HasColumnName("Slug")
             .HasColumnType("VARCHAR")
             .HasMaxLength(80);
-        builder.HasIndex(x => x.Slug, "IX_Category_Slug")
-            .IsUnique();
+        builder.HasIndex(x => x.Slug, "IX_Category_Slug");
     }
 }

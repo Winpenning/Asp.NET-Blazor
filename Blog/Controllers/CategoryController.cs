@@ -1,5 +1,6 @@
 using Blog.Data;
 using Blog.Models;
+using Blog.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 namespace Blog.Controllers;
@@ -14,11 +15,11 @@ public class CategoryController : ControllerBase
         {
             try
             {
-                return Ok(categories);
+                return Ok(new ResultViewModel<List<Category>>(categories));
             }
-            catch (Exception e)
+            catch
             {
-                return StatusCode(500, "Get");
+                return StatusCode(500, new ResultViewModel<List<Category>>("Falha interna no servidor."));
             }
         }
         else
@@ -35,23 +36,23 @@ public class CategoryController : ControllerBase
 
         if (category == null)
             return StatusCode(404);
-        
         try
         {
-            return Ok(category);
+            return Ok(new ResultViewModel<Category>(category));
         }
         catch (Exception e)
         {
-            return StatusCode(500,"GetById");
+            return StatusCode(500, new ResultViewModel<List<Category>>("Falha interna no servidor."));
         }
-        
     }
 
     [HttpPost("categories")]
     public async Task<IActionResult> PostAsync(
-        [FromBody] Category model,// Aplicar este quando conseguirmos puxar os dados do htmL
+        [FromBody] CategoryViewModel model,// Aplicar este quando conseguirmos puxar os dados do htmL
         [FromServices] BlogDataContext context)
     {
+        if (!ModelState.IsValid)
+            return BadRequest();
         try
         {
             var category = new Category
@@ -63,7 +64,7 @@ public class CategoryController : ControllerBase
             await context.Categories.AddAsync(category);
             await context.SaveChangesAsync();
 
-            return Ok();
+            return Created($"categories/{category.Id}",category);
         }
         catch (DbUpdateException ex)
         {
@@ -71,18 +72,16 @@ public class CategoryController : ControllerBase
         }
     }
     [HttpPut("categories/{id:int}")]
-    public async Task<IActionResult> PutAsync([FromRoute] int id,[FromBody] Category model, [FromServices] BlogDataContext context)
+    public async Task<IActionResult> PutAsync([FromRoute] int id,[FromBody] CategoryViewModel model, [FromServices] BlogDataContext context)
     {
         var category =  await context.Categories.FirstOrDefaultAsync(x => x.Id == id);
         if (category == null)
             return StatusCode(404);
-        
         category.Name = model.Name;
         category.Slug = model.Slug;
-        
         context.Categories.Update(category);
         await context.SaveChangesAsync();
-        return StatusCode(200, model);
+        return Ok(model);
     }
     [HttpDelete("categories/{id:int}")]
     public async Task<IActionResult> DeleteAsync([FromRoute] int id, [FromServices] BlogDataContext context)

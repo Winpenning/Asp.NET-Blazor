@@ -1,9 +1,7 @@
 using Blog.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-
 namespace Blog.Data.Mappings;
-
 public class PostMap : IEntityTypeConfiguration<Post>
 {
     public void Configure(EntityTypeBuilder<Post> builder)
@@ -13,21 +11,24 @@ public class PostMap : IEntityTypeConfiguration<Post>
         builder.Property(x => x.Id)
             .ValueGeneratedOnAdd()
             .UseIdentityColumn();
-
+        
         builder.Property(x => x.Title)
             .IsRequired()
             .HasColumnType("NVARCHAR")
             .HasMaxLength(100);
-
+        
         builder.Property(x => x.Summary)
             .HasColumnType("NVARCHAR")
             .HasMaxLength(200);
+        
         builder.Property(x => x.Body)
             .HasColumnType("NVARCHAR")
             .HasMaxLength(2000);
+        
         builder.Property(x => x.Slug)
             .HasColumnType("NVARCHAR")
             .HasMaxLength(200);
+        
         builder
             .HasIndex(x => x.Slug, "IX_User_Slug")
             .IsUnique();
