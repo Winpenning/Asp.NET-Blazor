@@ -4,8 +4,7 @@ using Blog.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 namespace Blog.Controllers;
-[ApiController]
-[Route("v1")]
+[ApiController] [Route("v1")]
 public class CategoryController : ControllerBase
 {
     [HttpGet("categories")]
@@ -67,6 +66,7 @@ public class CategoryController : ControllerBase
         await context.SaveChangesAsync();
         return Ok(new ResultViewModel<Category>(category));
     }
+
     [HttpDelete("categories/{id:int}")]
     public async Task<IActionResult> DeleteAsync([FromRoute] int id, [FromServices] BlogDataContext context)
     {
