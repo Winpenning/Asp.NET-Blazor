@@ -24,6 +24,7 @@ public class User
         Slug = slug;
         Bio = bio;
         Posts = new List<Post>();
+        
         Roles = new List<Role>();
     }
 }

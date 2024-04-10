@@ -1,5 +1,6 @@
 using Blog.Data;
 using Blog.Models;
+using Blog.Services;
 using Blog.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -9,6 +10,14 @@ namespace Blog.Controllers;
 [ApiController] [Route("v1")]
 public class AccountController : ControllerBase
 {
+    private readonly TokenService _tokenService;
+    
+    // Injeção de dependência. AccountController depende de tokenService para existir
+    public AccountController(TokenService tokenService)
+    {
+        _tokenService = tokenService;
+    }
+    
     [HttpGet("accounts")]
     public async Task<IActionResult> GetAsync([FromServices] BlogDataContext context)
     {
@@ -111,5 +120,12 @@ public class AccountController : ControllerBase
         {
             return StatusCode(500, new ResultViewModel<User>("0x603 - Internal Server Error."));
         }
+    }
+
+    [HttpPost("login")]
+    public IActionResult Login()
+    {
+        var token = _tokenService.GenerateToken(null);
+        return Ok(token);
     }
 }

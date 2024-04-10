@@ -130,3 +130,4 @@ C:\dev\.NET\Asp.NET-Blazor\Blog\obj\Debug\net8.0\refint\Blog.dll
 C:\dev\.NET\Asp.NET-Blazor\Blog\obj\Debug\net8.0\Blog.pdb
 C:\dev\.NET\Asp.NET-Blazor\Blog\obj\Debug\net8.0\Blog.genruntimeconfig.cache
 C:\dev\.NET\Asp.NET-Blazor\Blog\obj\Debug\net8.0\ref\Blog.dll
+C:\dev\.NET\Asp.NET-Blazor\Blog\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
