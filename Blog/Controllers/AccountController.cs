@@ -2,11 +2,11 @@ using Blog.Data;
 using Blog.Models;
 using Blog.Services;
 using Blog.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace Blog.Controllers;
-
 [ApiController] [Route("v1")]
 public class AccountController : ControllerBase
 {
@@ -122,10 +122,33 @@ public class AccountController : ControllerBase
         }
     }
 
+    [AllowAnonymous] // PERMITE Q O USUÁRIO ACESSE ESSE MÉTODO SEM ESTAR AUTORIZADO OU AUTENTICADO
     [HttpPost("login")]
     public IActionResult Login()
     {
         var token = _tokenService.GenerateToken(null);
         return Ok(token);
+    }
+
+    [Authorize(Roles = "user")] // BLOQUEIA O ACESSO DO CONTROLLER A TODO USUÁRIO QUE NÃO ESTEJA AUTORIZADO
+    [HttpGet("user")]
+    public IActionResult GetUser()
+    {
+        return Ok(User.Identity.Name);
+    }
+
+
+    [Authorize(Roles = "author")] // BLOQUEIA O ACESSO DO CONTROLLER A TODO USUÁRIO QUE NÃO ESTEJA AUTORIZADO
+    [HttpGet("author")]
+    public IActionResult GetAuthor()
+    {
+        return Ok(User.Identity.Name);
+    }
+
+    [Authorize(Roles = "admin")] // BLOQUEIA O ACESSO DO CONTROLLER A TODO USUÁRIO QUE NÃO ESTEJA AUTORIZADO
+    [HttpGet("admin")]
+    public IActionResult GetAdmin()
+    {
+        return Ok(User.Identity.Name);
     }
 }
