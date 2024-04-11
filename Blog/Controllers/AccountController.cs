@@ -6,19 +6,16 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SecureIdentity.Password;
-
 namespace Blog.Controllers;
 [ApiController] [Route("v1")]
 public class AccountController : ControllerBase
 {
     private readonly TokenService _tokenService;
-    
     // Injeção de dependência. AccountController depende de tokenService para existir
     public AccountController(TokenService tokenService)
     {
         _tokenService = tokenService;
     }
-    
     [HttpGet("accounts")]
     public async Task<IActionResult> GetAsync([FromServices] BlogDataContext context)
     {
@@ -36,12 +33,10 @@ public class AccountController : ControllerBase
         }
         return NotFound(new ResultViewModel<List<User>>("0x400 - No one user found."));
     }
-
     [HttpGet("accounts/{id:int}")]
     public async Task<IActionResult> GetByIdAsync([FromServices] BlogDataContext context, [FromRoute] int id)
     {
         var user = await context.Users.FirstOrDefaultAsync(x => x.Id == id);
-
         if (user == null)
             return NotFound(new ResultViewModel<User>("0x401 - User not found."));
         try
@@ -53,7 +48,6 @@ public class AccountController : ControllerBase
             return StatusCode(500, new ResultViewModel<User>("0x601 - Internal Server Error"));
         }
     }
-
     [HttpPost("accounts")]
     public async Task<IActionResult> PostAsync(
         [FromServices] BlogDataContext context,
@@ -61,7 +55,6 @@ public class AccountController : ControllerBase
     {
         if (!ModelState.IsValid) 
             return BadRequest(new ResultViewModel<string>("0x300 - Invalid Request"));
-
         var user = new User
         {
             Name = model.Name,
@@ -72,10 +65,8 @@ public class AccountController : ControllerBase
         var password = PasswordGenerator.Generate(25, true, true);
         // Gera o hash da senha encriptando-a para salvar no banco
         user.PasswordHash = PasswordHasher.Hash(password);
-        
         // GERAR SENHA FORTE PARA O USUÁRIO
         //Armazenamento das Senhas -> Encriptação
-
         try
         {
             await context.Users.AddAsync(user);
@@ -93,9 +84,7 @@ public class AccountController : ControllerBase
         {
             return StatusCode(500, new ResultViewModel<User>("0x602 - Internal Server Error."));
         }
-
     }
-
     [HttpPut("accounts/{id:int}")]
     public async Task<IActionResult> PutAsync([FromServices] BlogDataContext context, [FromBody] AccountViewModel model, [FromRoute] int id)
     {
@@ -115,8 +104,6 @@ public class AccountController : ControllerBase
             return StatusCode(500,new ResultViewModel<User>( "0x602 - Internal Server Error."));
         }
     }
-    
-    
     [HttpDelete("accounts/{id:int}")]
     public async Task<IActionResult> DeleteAsync([FromServices] BlogDataContext context, [FromRoute] int id)
     {
@@ -134,8 +121,6 @@ public class AccountController : ControllerBase
             return StatusCode(500, new ResultViewModel<User>("0x603 - Internal Server Error."));
         }
     }
-
-    
     // MÉTODO DE LOGIN
     [AllowAnonymous] // PERMITE Q O USUÁRIO ACESSE ESSE MÉTODO SEM ESTAR AUTORIZADO OU AUTENTICADO
     [HttpPost("login")]
@@ -144,21 +129,17 @@ public class AccountController : ControllerBase
         // VERIFICA A VALIDADE DO MODEL
         if (!ModelState.IsValid)
             return BadRequest(new ResultViewModel<string>("0x301 - Invalid Request"));
-        
         // RETORNA O USUÁRIO 
         var user = await context
             .Users
             .AsNoTracking()
             .Include(x => x.Roles) // devemos pegar os roles para fazer os Claims do tokens
             .FirstOrDefaultAsync(x => x.Email == model.Email);
-
         if (user == null)
             return StatusCode(401, new ResultViewModel<string>("Usuário ou senha inválida."));
-
         // VERIFICA VIA HASH (NÃO VIA STRING), OS HASH'S
         if(!PasswordHasher.Verify(user.PasswordHash,model.Password))
             return StatusCode(401, new ResultViewModel<string>("Usuário ou senha inválida."));
-
         try
         {
             var token = tokenService.GenerateToken(user);
@@ -169,7 +150,6 @@ public class AccountController : ControllerBase
             return StatusCode(500, new ResultViewModel<string>("0x603 - Internal Server Error."));
         }
     }
-
     // [Authorize(Roles = "user")] // BLOQUEIA O ACESSO DO CONTROLLER A TODO USUÁRIO QUE NÃO ESTEJA AUTORIZADO
     // [HttpGet("user")]
     // public IActionResult GetUser()
@@ -191,5 +171,4 @@ public class AccountController : ControllerBase
     // {
     //     return Ok(User.Identity.Name);
     // }
-        
 }

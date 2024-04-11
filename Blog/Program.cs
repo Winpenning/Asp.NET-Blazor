@@ -31,7 +31,13 @@ builder.Services.AddTransient<TokenService>(); // Permite com que a autenticaç�
 //builder.Services.AddScoped(); //permite que a atutenticação dure por transação
 //builder.Services.AddSingleton(); // implementa o padrão singleton
 var app = builder.Build();
+app.Configuration.GetValue<int>("JwtKey");
+app.Configuration.GetValue<string>("ApiKeyName");
+app.Configuration.GetValue<string>("ApiKey");
 
+var smtp = new Configuration.SmtpConfiguration();
+app.Configuration.GetSection("smtp").Bind(smtp);
+Configuration.Smtp = smtp;
 app.UseAuthentication();
 app.UseAuthorization();
 
