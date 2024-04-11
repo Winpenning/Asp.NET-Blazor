@@ -1,6 +1,7 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using Blog.Extensions;
 using Blog.Models;
 using Microsoft.IdentityModel.Tokens;
 namespace Blog.Services;
@@ -13,22 +14,17 @@ public class TokenService
 
         // Transforma o hash do token em um array de bytes
         var key = Encoding.ASCII.GetBytes(Configuration.JwtKey);
+
+        var claims = user.GetClaims();
+        
         
         // Configura o token
         var tokenDescriptor = new SecurityTokenDescriptor
         {
             // "Assunto"
-            Subject = new ClaimsIdentity(new Claim[]
-            {
-                new Claim(ClaimTypes.Name,"winpenning"),
-                new Claim(ClaimTypes.Role,"user"),
-                new Claim(ClaimTypes.Role,"admin"),
-                new Claim("fruta","banana")
-            }),
-            
+            Subject = new ClaimsIdentity(claims),
             // Duração do token
             Expires = DateTime.UtcNow.AddHours(2),
-            
             // credenciais de autenticação e algoritmo de criptografia.
             SigningCredentials = new SigningCredentials
                 (

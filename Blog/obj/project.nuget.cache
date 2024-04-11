@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Dw3cC8LGj3gV1V/WMSNoqIcet/UWIQauWj9f0ywI7P5HdIdYFE2sXniyd+JsvPae4nSNfLoUzLUb02QPkMr0UQ==",
+  "dgSpecHash": "0+hpRBMtqPyqeAnpjyei9VGYA5+/7RJNUxXiQhR9WvgrNm+sSMTaTOSY1BNGLMb70kzCKoc6G8eQ1EjX3H1D0w==",
   "success": true,
   "projectFilePath": "C:\\dev\\.NET\\Asp.NET-Blazor\\Blog\\Blog.csproj",
   "expectedPackageFiles": [
@@ -62,6 +62,7 @@
     "C:\\Users\\paulo.henrique\\.nuget\\packages\\microsoft.win32.registry\\4.5.0\\microsoft.win32.registry.4.5.0.nupkg.sha512",
     "C:\\Users\\paulo.henrique\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
     "C:\\Users\\paulo.henrique\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
+    "C:\\Users\\paulo.henrique\\.nuget\\packages\\secureidentity\\1.0.4\\secureidentity.1.0.4.nupkg.sha512",
     "C:\\Users\\paulo.henrique\\.nuget\\packages\\system.buffers\\4.5.0\\system.buffers.4.5.0.nupkg.sha512",
     "C:\\Users\\paulo.henrique\\.nuget\\packages\\system.codedom\\4.4.0\\system.codedom.4.4.0.nupkg.sha512",
     "C:\\Users\\paulo.henrique\\.nuget\\packages\\system.collections.immutable\\6.0.0\\system.collections.immutable.6.0.0.nupkg.sha512",

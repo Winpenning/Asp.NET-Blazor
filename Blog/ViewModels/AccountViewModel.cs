@@ -5,12 +5,9 @@ namespace Blog.ViewModels;
 
 public class AccountViewModel
 {
-    [Required]
+    [Required(ErrorMessage = "O nome é obrigatório")]
     public string Name { get; set; }
-    [Required]
+    [Required(ErrorMessage = "O email é obrigatório")]
+    [EmailAddress(ErrorMessage = "O email é inválido")]
     public string Email { get; set; }
-    [Required]
-    public string Slug { get; set; }
-    [Required]
-    public string Bio { get; set; }
 }

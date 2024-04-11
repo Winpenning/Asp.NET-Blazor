@@ -8,6 +8,7 @@ C:\dev\.NET\Asp.NET-Blazor\Blog\bin\Debug\net8.0\Blog.pdb
 C:\dev\.NET\Asp.NET-Blazor\Blog\bin\Debug\net8.0\Azure.Core.dll
 C:\dev\.NET\Asp.NET-Blazor\Blog\bin\Debug\net8.0\Azure.Identity.dll
 C:\dev\.NET\Asp.NET-Blazor\Blog\bin\Debug\net8.0\Humanizer.dll
+C:\dev\.NET\Asp.NET-Blazor\Blog\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\dev\.NET\Asp.NET-Blazor\Blog\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\dev\.NET\Asp.NET-Blazor\Blog\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
 C:\dev\.NET\Asp.NET-Blazor\Blog\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
@@ -130,4 +131,4 @@ C:\dev\.NET\Asp.NET-Blazor\Blog\obj\Debug\net8.0\refint\Blog.dll
 C:\dev\.NET\Asp.NET-Blazor\Blog\obj\Debug\net8.0\Blog.pdb
 C:\dev\.NET\Asp.NET-Blazor\Blog\obj\Debug\net8.0\Blog.genruntimeconfig.cache
 C:\dev\.NET\Asp.NET-Blazor\Blog\obj\Debug\net8.0\ref\Blog.dll
-C:\dev\.NET\Asp.NET-Blazor\Blog\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\dev\.NET\Asp.NET-Blazor\Blog\bin\Debug\net8.0\SecureIdentity.dll
