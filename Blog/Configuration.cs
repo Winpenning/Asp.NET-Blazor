@@ -11,8 +11,8 @@ public static class Configuration
     // podemos colocar uma classe dentro de uma classe estática
     public class SmtpConfiguration
     {
-        public string Host { get; set; }
-        public int Port { get; set; } = 25;
+        public string Host { get; set; } // gmail, outlook, etc...
+        public int Port { get; set; } = 25; // porta do servidor
         public string UserName { get; set; }
         public string Password { get; set; }        
     }

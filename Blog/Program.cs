@@ -3,43 +3,70 @@ using Blog;
 using Blog.Data;
 using Blog.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
+using Microsoft.IdentityModel.Tokens; 
+
+/*
+ * @author: Paulo Henrique Ziemer dos Santos (Winpenning)
+ * Web API para fins de estudo
+ */
 
 var builder = WebApplication.CreateBuilder(args);
+ConfigureAuthentication(builder);
+ConfigureMVC(builder);
+ConfigureServices(builder);
 
-var key = Encoding.ASCII.GetBytes(Configuration.JwtKey);
-
-builder.Services.AddAuthentication(x =>
-{
-    x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-    x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-}).AddJwtBearer(x=>x.TokenValidationParameters= new TokenValidationParameters
-{
-    ValidateIssuerSigningKey =true,
-    IssuerSigningKey = new SymmetricSecurityKey(key),
-    ValidateIssuer = false,
-    ValidateAudience = false
-});
-
-
-
-builder.Services.AddControllers().ConfigureApiBehaviorOptions
-(opt => {opt.SuppressModelStateInvalidFilter = true; });
-
-builder.Services.AddDbContext<BlogDataContext>();
-builder.Services.AddTransient<TokenService>(); // Permite com que a autenticação fique ativa por requisição única
-//builder.Services.AddScoped(); //permite que a atutenticação dure por transação
-//builder.Services.AddSingleton(); // implementa o padrão singleton
 var app = builder.Build();
-app.Configuration.GetValue<int>("JwtKey");
-app.Configuration.GetValue<string>("ApiKeyName");
-app.Configuration.GetValue<string>("ApiKey");
+LoadConfiguration(app);
+App(app);
 
-var smtp = new Configuration.SmtpConfiguration();
-app.Configuration.GetSection("smtp").Bind(smtp);
-Configuration.Smtp = smtp;
-app.UseAuthentication();
-app.UseAuthorization();
 
-app.MapControllers();
-app.Run();
+void LoadConfiguration(WebApplication app)
+{
+    // uso da ApiKey
+    Configuration.JwtKey = app.Configuration.GetValue<string>("JwtKey");
+    Configuration.ApiKeyName = app.Configuration.GetValue<string>("ApiKeyName");
+    Configuration.ApiKey = app.Configuration.GetValue<string>("ApiKey");
+
+    var smtp = new Configuration.SmtpConfiguration();
+    app.Configuration.GetSection("smtp").Bind(smtp); // pega uma seção de dados
+//app.Configuration.GetValue -> retorna o valor 
+    Configuration.Smtp = smtp;
+}
+
+void ConfigureAuthentication(WebApplicationBuilder builder)
+{
+    var key = Encoding.ASCII.GetBytes(Configuration.JwtKey);
+    builder.Services.AddAuthentication(x =>
+    {
+        x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+        x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    }).AddJwtBearer(x=>x.TokenValidationParameters= new TokenValidationParameters
+    {
+        ValidateIssuerSigningKey =true,
+        IssuerSigningKey = new SymmetricSecurityKey(key),
+        ValidateIssuer = false,
+        ValidateAudience = false
+    });
+}
+
+void ConfigureMVC(WebApplicationBuilder builder)
+{
+    builder.Services.AddControllers().ConfigureApiBehaviorOptions
+        (opt => {opt.SuppressModelStateInvalidFilter = true; });
+}
+
+void ConfigureServices(WebApplicationBuilder builder)
+{
+    builder.Services.AddDbContext<BlogDataContext>();
+    builder.Services.AddTransient<TokenService>(); // Permite com que a autenticação fique ativa por requisição única
+    //builder.Services.AddScoped(); //permite que a atutenticação dure por transação
+    //builder.Services.AddSingleton(); // implementa o padrão singleton
+}
+
+void App(WebApplication app)
+{
+    app.UseAuthentication();
+    app.UseAuthorization();
+    app.MapControllers();
+    app.Run();
+}

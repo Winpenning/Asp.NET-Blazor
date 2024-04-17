@@ -46,7 +46,7 @@ public class CategoryController : ControllerBase
         {
             await context.Categories.AddAsync(category);
             await context.SaveChangesAsync();
-            return Created($"categories/{category.Id}", new ResultViewModel<Category>(category));
+            return Created($"   categories/{category.Id}", new ResultViewModel<Category>(category));
         }
         catch (DbUpdateException ex)
         {

@@ -32,6 +32,7 @@ C:\dev\.NET\Asp.NET-Blazor\Blog\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.
 C:\dev\.NET\Asp.NET-Blazor\Blog\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
 C:\dev\.NET\Asp.NET-Blazor\Blog\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
 C:\dev\.NET\Asp.NET-Blazor\Blog\bin\Debug\net8.0\Mono.TextTemplating.dll
+C:\dev\.NET\Asp.NET-Blazor\Blog\bin\Debug\net8.0\SecureIdentity.dll
 C:\dev\.NET\Asp.NET-Blazor\Blog\bin\Debug\net8.0\System.CodeDom.dll
 C:\dev\.NET\Asp.NET-Blazor\Blog\bin\Debug\net8.0\System.Composition.AttributedModel.dll
 C:\dev\.NET\Asp.NET-Blazor\Blog\bin\Debug\net8.0\System.Composition.Convention.dll
@@ -131,4 +132,3 @@ C:\dev\.NET\Asp.NET-Blazor\Blog\obj\Debug\net8.0\refint\Blog.dll
 C:\dev\.NET\Asp.NET-Blazor\Blog\obj\Debug\net8.0\Blog.pdb
 C:\dev\.NET\Asp.NET-Blazor\Blog\obj\Debug\net8.0\Blog.genruntimeconfig.cache
 C:\dev\.NET\Asp.NET-Blazor\Blog\obj\Debug\net8.0\ref\Blog.dll
-C:\dev\.NET\Asp.NET-Blazor\Blog\bin\Debug\net8.0\SecureIdentity.dll
