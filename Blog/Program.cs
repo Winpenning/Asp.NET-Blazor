@@ -1,8 +1,11 @@
+using System.IO.Compression;
 using System.Text;
+using System.Text.Json.Serialization;
 using Blog;
 using Blog.Data;
 using Blog.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.IdentityModel.Tokens; 
 
 /*
@@ -12,7 +15,7 @@ using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 ConfigureAuthentication(builder);
-ConfigureMVC(builder);
+ConfigureMvc(builder);
 ConfigureServices(builder);
 
 var app = builder.Build();
@@ -32,7 +35,6 @@ void LoadConfiguration(WebApplication app)
 //app.Configuration.GetValue -> retorna o valor 
     Configuration.Smtp = smtp;
 }
-
 void ConfigureAuthentication(WebApplicationBuilder builder)
 {
     var key = Encoding.ASCII.GetBytes(Configuration.JwtKey);
@@ -48,25 +50,41 @@ void ConfigureAuthentication(WebApplicationBuilder builder)
         ValidateAudience = false
     });
 }
-
-void ConfigureMVC(WebApplicationBuilder builder)
+void ConfigureMvc(WebApplicationBuilder builder)
 {
+    builder.Services.AddMemoryCache();
+    builder.Services.AddResponseCompression(options =>
+    {
+        options.Providers.Add<GzipCompressionProvider>();
+    });
+    builder.Services.Configure<GzipCompressionProviderOptions>(options =>
+    {
+        options.Level = CompressionLevel.Optimal;
+    });
     builder.Services.AddControllers().ConfigureApiBehaviorOptions
-        (opt => {opt.SuppressModelStateInvalidFilter = true; });
+        (opt => {opt.SuppressModelStateInvalidFilter = true; })
+        .AddJsonOptions(X =>
+        {
+            // ignora os ciclos subsequentes de serialização de dados
+            X.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles; 
+            // quando retornar um objeto nulo, ele não renderizará o objeto na tela
+            X.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingDefault;
+        });
 }
-
 void ConfigureServices(WebApplicationBuilder builder)
 {
     builder.Services.AddDbContext<BlogDataContext>();
     builder.Services.AddTransient<TokenService>(); // Permite com que a autenticação fique ativa por requisição única
     //builder.Services.AddScoped(); //permite que a atutenticação dure por transação
     //builder.Services.AddSingleton(); // implementa o padrão singleton
+    builder.Services.AddTransient<EmailService>();
 }
-
 void App(WebApplication app)
 {
     app.UseAuthentication();
     app.UseAuthorization();
+    app.UseResponseCompression();
+    app.UseStaticFiles();
     app.MapControllers();
     app.Run();
 }

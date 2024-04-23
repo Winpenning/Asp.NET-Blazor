@@ -1,16 +1,30 @@
 using Blog.Data;
 using Blog.Models;
 using Blog.ViewModels;
+using Blog.ViewModels.Categories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Memory;
+
 namespace Blog.Controllers;
 [ApiController] [Route("v1")]
 public class CategoryController : ControllerBase
 {
-    [HttpGet("categories")]
-    public async Task<IActionResult> GetAsync([FromServices]BlogDataContext context)
+    public List<Category> GetCategories([FromServices] BlogDataContext context)
     {
-        var categories = await context.Categories.ToListAsync();
+        var categories = context.Categories.ToList();
+        return (categories);
+    }
+    [HttpGet("categories")]
+    public async Task<IActionResult> GetAsync(
+        [FromServices]BlogDataContext context,
+        [FromServices] IMemoryCache cache)
+    {
+        var categories = cache.GetOrCreate("CategoriesCache", entry =>
+        {
+            entry.AbsoluteExpirationRelativeToNow = TimeSpan.FromHours(1);
+            return GetCategories(context);
+        });
         if (categories != null)
         {
             try 

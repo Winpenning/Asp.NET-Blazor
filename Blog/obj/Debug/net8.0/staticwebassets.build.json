@@ -1,11 +1,19 @@
 {
   "Version": 1,
-  "Hash": "iHKkzylLStCdz/H62Ga7eUDHbY68jqQS/peP5vtmhCs=",
+  "Hash": "oES0DOH/LufkC3GVYXf0PjqISn1/Awu/V5MgRsk9S88=",
   "Source": "Blog",
   "BasePath": "_content/Blog",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "Blog\\wwwroot",
+      "Source": "Blog",
+      "ContentRoot": "C:\\dev\\.NET\\Asp.NET-Blazor\\Blog\\wwwroot\\",
+      "BasePath": "_content/Blog",
+      "Pattern": "**"
+    }
+  ],
   "Assets": []
 }

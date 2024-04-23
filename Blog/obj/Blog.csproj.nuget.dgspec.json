@@ -63,6 +63,10 @@
               "target": "Package",
               "version": "[8.0.3, )"
             },
+            "OneSignalApi": {
+              "target": "Package",
+              "version": "[2.0.2, )"
+            },
             "SecureIdentity": {
               "target": "Package",
               "version": "[1.0.4, )"

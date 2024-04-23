@@ -2,7 +2,7 @@ namespace Blog;
 
 public static class Configuration
 {
-    //string do hash que será usado no token :0
+    //string do hash que será usado no token
     public static string JwtKey = "dfsHFDOEUIH9320dasR2384RF80-930UR0J*";
     public static string ApiKeyName = "api_key";
     public static string ApiKey = "kjsflk=240-o=2ot0-43=A";

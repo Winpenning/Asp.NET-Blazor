@@ -132,3 +132,9 @@ C:\dev\.NET\Asp.NET-Blazor\Blog\obj\Debug\net8.0\refint\Blog.dll
 C:\dev\.NET\Asp.NET-Blazor\Blog\obj\Debug\net8.0\Blog.pdb
 C:\dev\.NET\Asp.NET-Blazor\Blog\obj\Debug\net8.0\Blog.genruntimeconfig.cache
 C:\dev\.NET\Asp.NET-Blazor\Blog\obj\Debug\net8.0\ref\Blog.dll
+C:\dev\.NET\Asp.NET-Blazor\Blog\bin\Debug\net8.0\JsonSubTypes.dll
+C:\dev\.NET\Asp.NET-Blazor\Blog\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\dev\.NET\Asp.NET-Blazor\Blog\bin\Debug\net8.0\OneSignalApi.dll
+C:\dev\.NET\Asp.NET-Blazor\Blog\bin\Debug\net8.0\Polly.dll
+C:\dev\.NET\Asp.NET-Blazor\Blog\bin\Debug\net8.0\RestSharp.dll
+C:\dev\.NET\Asp.NET-Blazor\Blog\bin\Debug\net8.0\Blog.staticwebassets.runtime.json
