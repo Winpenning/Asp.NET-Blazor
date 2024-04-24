@@ -10,6 +10,7 @@ namespace Blog.Controllers;
 [ApiController] [Route("v1")]
 public class CategoryController : ControllerBase
 {
+    [HttpGet("gtc")]
     public List<Category> GetCategories([FromServices] BlogDataContext context)
     {
         var categories = context.Categories.ToList();

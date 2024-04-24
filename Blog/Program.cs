@@ -5,7 +5,9 @@ using Blog;
 using Blog.Data;
 using Blog.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.ResponseCompression;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens; 
 
 /*
@@ -73,7 +75,13 @@ void ConfigureMvc(WebApplicationBuilder builder)
 }
 void ConfigureServices(WebApplicationBuilder builder)
 {
-    builder.Services.AddDbContext<BlogDataContext>();
+    builder.Services.AddEndpointsApiExplorer();
+    builder.Services.AddSwaggerGen();
+    var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+    builder.Services.AddDbContext<BlogDataContext>(options =>
+    {
+        options.UseSqlServer(connectionString);
+    });
     builder.Services.AddTransient<TokenService>(); // Permite com que a autenticação fique ativa por requisição única
     //builder.Services.AddScoped(); //permite que a atutenticação dure por transação
     //builder.Services.AddSingleton(); // implementa o padrão singleton
@@ -81,6 +89,14 @@ void ConfigureServices(WebApplicationBuilder builder)
 }
 void App(WebApplication app)
 {
+    if (app.Environment.IsDevelopment())
+    {
+        app.MapSwagger();
+        app.UseSwagger();
+        app.UseSwaggerUI();
+    }
+
+    app.UseHttpsRedirection();
     app.UseAuthentication();
     app.UseAuthorization();
     app.UseResponseCompression();
