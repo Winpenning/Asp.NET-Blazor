@@ -1,0 +1,21 @@
+@page "~/categorias/{skip?}/{take?}"
+@model FirstRazorApp.Pages.categories
+
+@{
+    ViewData["title"] = "categorias";
+}
+
+<table>
+    <thead>
+    <tr>
+        <td>Id</td>
+        <td>Name</td>
+        <td>Price</td>
+    </tr>
+    </thead>
+</table>
+
+@foreach (var item in @Model.x)
+{
+    <p>@item.Name //////////// @item.Price</p>
+}

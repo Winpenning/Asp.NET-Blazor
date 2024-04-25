@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "FirstRazorApp/1.0.0": {
+        "runtime": {
+          "FirstRazorApp.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "FirstRazorApp/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewData["title"] | Razor</title>
+    <link rel="stylesheet" href="site.css">
+    <link rel="stylesheet" href="~/FirstRazorApp.styles.css">
+</head>
+<body>
+<partial name="Shared/NavMenuPartial"/>
+<main>
+    @RenderBody()
+</main>
+@RenderSection("site",false);
+</body>
+</html>
