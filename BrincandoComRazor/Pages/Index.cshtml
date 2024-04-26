@@ -15,6 +15,12 @@
 <body>
 <div>
     <h1>Home</h1>
+    <div>
+        @foreach (var item in Model.cat)
+        {
+            <p>@item.Title</p>
+        }
+    </div>
 </div>
 <footer>
     <div>
