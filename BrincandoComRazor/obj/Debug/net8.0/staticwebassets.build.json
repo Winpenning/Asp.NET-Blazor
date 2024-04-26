@@ -1,0 +1,19 @@
+{
+  "Version": 1,
+  "Hash": "B7EvXUaFu4QWPK81/PlRkSbc2kcQve7wYyhvz+4sFcQ=",
+  "Source": "BrincandoComRazor",
+  "BasePath": "_content/BrincandoComRazor",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "BrincandoComRazor\\wwwroot",
+      "Source": "BrincandoComRazor",
+      "ContentRoot": "C:\\dev\\.NET\\Asp.NET-Blazor\\BrincandoComRazor\\wwwroot\\",
+      "BasePath": "_content/BrincandoComRazor",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": []
+}
