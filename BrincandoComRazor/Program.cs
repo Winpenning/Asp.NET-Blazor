@@ -1,6 +1,7 @@
 var builder = WebApplication.CreateBuilder(args);
-var app = builder.Build();
+builder.Services.AddRazorPages(); // Adiciona suporte as páginas razor
 
-app.MapGet("/", () => "Hello World!");
+var app = builder.Build();
+app.UseStaticFiles(); // Habilita o uso de arquivos estáticos
 
 app.Run();
