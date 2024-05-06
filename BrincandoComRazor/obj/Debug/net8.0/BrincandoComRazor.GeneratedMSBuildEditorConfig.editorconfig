@@ -21,3 +21,7 @@ build_property._RazorSourceGeneratorDebug =
 [C:/dev/.NET/Asp.NET-Blazor/BrincandoComRazor/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
+
+[C:/dev/.NET/Asp.NET-Blazor/BrincandoComRazor/Pages/Posts.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUG9zdHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
