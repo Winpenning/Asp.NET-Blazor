@@ -18,10 +18,22 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\dev\.NET\Asp.NET-Blazor\BrincandoComRazor
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/dev/.NET/Asp.NET-Blazor/BrincandoComRazor/Pages/Categories.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2F0ZWdvcmllcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/dev/.NET/Asp.NET-Blazor/BrincandoComRazor/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/dev/.NET/Asp.NET-Blazor/BrincandoComRazor/Pages/Posts.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUG9zdHMuY3NodG1s
+[C:/dev/.NET/Asp.NET-Blazor/BrincandoComRazor/Pages/Shared/NavMenuPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXE5hdk1lbnVQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/dev/.NET/Asp.NET-Blazor/BrincandoComRazor/Pages/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/dev/.NET/Asp.NET-Blazor/BrincandoComRazor/Pages/Shared/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WaWV3SW1wb3J0cy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

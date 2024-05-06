@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BrincandoComRazor")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+95f36fab57922b1c4e7f8dafd77b63ca6b5b02d2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+db3851c8e1956de0ab5f4c1705b29040e5896bd4")]
 [assembly: System.Reflection.AssemblyProductAttribute("BrincandoComRazor")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BrincandoComRazor")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
