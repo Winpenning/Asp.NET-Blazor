@@ -5,3 +5,8 @@
 }
 
 <h1>Categorias</h1>
+
+@foreach (var item in @Model.categories)
+{
+    <p>@item.Name</p>
+}
