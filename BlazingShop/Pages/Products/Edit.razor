@@ -1,0 +1,86 @@
+@page "/products/edit/{id:int}"
+@using BlazingShop.Models
+@using BlazingShop.Data
+@using Microsoft.EntityFrameworkCore
+@inject AppDbContext _Context
+@inject NavigationManager _NavigationManager
+<h1>@_model?.Title</h1>
+<EditForm Model="_model" OnValidSubmit="@HandleSubmitAsync"> <!--Tag helper do blazor que trás funcionalidades para o formulário-->
+    
+    <DataAnnotationsValidator/>
+    <ValidationSummary/>
+    
+    
+    <div class="mb-3">
+        <label for="Title" class="form-label">Product Name</label>
+        <InputText class="form-control"
+                   type="text" id="Title"
+                   @bind-Value="_model.Title">
+        </InputText> <!--TagHelper-->
+        </div>
+    <div class="mb-3">
+        <label for="Price" class="form-label">Price</label>
+        <InputNumber class="form-control"
+                     type="number" id="Price"
+                     @bind-Value="_model.Price">
+        </InputNumber> <!--TagHelper-->
+    </div>
+    <div class="mb-3">
+        <label for="CategoryId" class="form-label">Category</label>
+        <InputSelect id="CategoryId"
+                     @bind-Value="@_model.CategoryId"
+                     class="form-control">
+            @foreach (var cat in _categories)
+            {
+                <option value="@cat.Id">
+                    @cat.Title
+                </option>
+            }
+        </InputSelect>
+    </div>
+    
+    @if (!string.IsNullOrEmpty(ErrorMessage))
+    {
+        <div class="alert alert-danger" role="alert">
+            @ErrorMessage
+        </div>
+    }
+    
+    <button class="btn btn-success" type="submit">save</button>
+</EditForm>
+
+@code
+{
+    [Parameter] public int Id { get; set; }
+    string? ErrorMessage = null;
+    private Product _model = new();
+    List<Category> _categories = new();
+    protected async override Task OnInitializedAsync()
+    {
+        _categories = await _Context.Categories.AsNoTracking().ToListAsync();
+        _model = await _Context.Products.AsNoTracking().FirstOrDefaultAsync(x => x.Id == Id);
+    }
+
+    async Task HandleSubmitAsync()
+    {
+        try
+        {
+            var prod = await _Context.Products.FirstOrDefaultAsync(x => x.Id == Id);
+            if (prod is null)
+                throw new Exception("Produto não encontrado");
+
+            prod.Title = _model.Title;
+            prod.Price = _model.Price;
+            prod.CategoryId = _model.CategoryId;
+
+            _Context.Products.Update(prod);
+            await _Context.SaveChangesAsync();
+
+            _NavigationManager.NavigateTo("/products");
+        }
+        catch (Exception e)
+        {
+            ErrorMessage = "Falha ao persistir os dados";
+        }
+    }
+}
