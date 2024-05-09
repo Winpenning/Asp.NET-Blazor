@@ -10,7 +10,12 @@
 <table class="table">
     <thead>
     <tr>
-        <td>Id</td><td>Category</td><td>Title</td><td>Price</td>
+        <td>Id</td>
+        <td>Category</td>
+        <td>Title</td>
+        <td>Price</td>
+        <td>Edit</td>
+        <td>Delete</td>
     </tr>
     </thead>
     <tbody>
@@ -21,6 +26,12 @@
             <td>@product.Cate</td>
             <td>@product.Title</td>
             <td>@product.Price.ToString("C")</td>
+            <td>
+                <a href="/products/edit/@product.Id">Edit</a>
+            </td>
+            <td>
+                <a href="/products/delete/@product.Id">Delete</a>
+            </td>
         </tr>
     }
     </tbody>

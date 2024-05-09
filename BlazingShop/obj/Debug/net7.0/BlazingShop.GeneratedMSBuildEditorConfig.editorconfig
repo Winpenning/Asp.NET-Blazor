@@ -30,6 +30,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdHNcQ3JlYXRlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/dev/.NET/Asp.NET-Blazor/BlazingShop/Pages/Products/Delete.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdHNcRGVsZXRlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/dev/.NET/Asp.NET-Blazor/BlazingShop/Pages/Products/Edit.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdHNcRWRpdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
