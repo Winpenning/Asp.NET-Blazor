@@ -14,10 +14,4 @@ public class Category
     public string Title { get; set; } = string.Empty;
 
     public List<Product> Products { get; set; } = new();
-
-    public Category(int id, string title)
-    {
-        Id = id;
-        Title  = title;
-    }
 }
