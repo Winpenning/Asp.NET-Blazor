@@ -1,0 +1,53 @@
+@page "/categories/create" 
+@using BlazingShop.Models 
+@using BlazingShop.Data 
+@inject AppDbContext Context 
+@inject NavigationManager NavigationManager
+
+<h1>New Category</h1>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias at consectetur distinctio dolorem fugit illo illum inventore iusto laborum, maiores modi nemo officia perspiciatis porro quos saepe suscipit unde voluptatum?</p>
+
+<EditForm Model="_category" OnValidSubmit="@AddCategory">
+    <DataAnnotationsValidator/>
+    <ValidationSummary/>
+
+    <div class="mb-3">
+        <label for="Title" class="form-label">Category Name</label>
+        <InputText class="form-control" 
+                   type="text" id="Title" @bind-Value="_category.Title"></InputText>
+    </div>
+    <button class="btn btn-success" type="submit">save</button>
+
+</EditForm>
+
+
+
+
+
+
+
+@code
+{
+    string? ErrorMessage = null; // Armazenar a mensagem de erro, caso algum erro ocorra
+    private Category _category = new Category();
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+    }
+
+    async Task AddCategory()
+    {
+        try
+        {
+            await Context.Categories.AddAsync(_category); // Adiciona a categoria no banco
+            await Context.SaveChangesAsync(); // Inseri de fato no banco (INSERT INTO)
+            NavigationManager.NavigateTo("/categories"); // Redireciona o usuário para a página de categorias
+        }
+        catch(Exception e)
+        {
+            ErrorMessage = $"Falha ao Inserir a categoria no banco." +
+                           $"Erro: {e.Message}";
+        }
+    }
+}
