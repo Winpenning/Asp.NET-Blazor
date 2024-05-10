@@ -1,0 +1,45 @@
+@page "/categories"
+@using BlazingShop.Models
+@using BlazingShop.Data
+@using Microsoft.EntityFrameworkCore
+@inject AppDbContext Context
+<h1>Categories</h1>
+<a href="categories/create" class="btn btn-primary"><i class="oi oi-plus"></i> create</a>
+<table class="table">
+    <thead>
+    <tr>
+        <td>Id</td>
+        <td>Title</td>
+        <td>Description</td>
+        <td>Edit</td>
+        <td>Delete</td>
+    </tr>
+    </thead>
+    <tbody>
+        @foreach (var category in _categories)
+        {
+            <tr>
+                <td>@category.Id</td>
+                <td>@category.Title</td>
+                <td>null</td>
+                <td>
+                    <a href="/categories/edit/@category.Id" class="btn btn-primary">Edit</a>    
+                </td>
+                <td>
+                    <a href="/categories/delete/@category.Id" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+
+@code{
+    private List<Category> _categories = new();
+    protected override async Task OnInitializedAsync()
+    {
+        _categories = await Context.Categories.AsNoTracking().ToListAsync();
+    }
+}
