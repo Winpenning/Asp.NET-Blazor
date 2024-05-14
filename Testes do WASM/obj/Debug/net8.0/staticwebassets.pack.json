@@ -1,0 +1,61 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\dev\\.NET\\Asp.NET-Blazor\\Testes do WASM\\bin\\Debug\\net8.0\\wwwroot\\_framework\\blazor.webassembly.js",
+      "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js"
+    },
+    {
+      "Id": "C:\\dev\\.NET\\Asp.NET-Blazor\\Testes do WASM\\obj\\Debug\\net8.0\\compressed\\a8k236xrq8.gz",
+      "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js.gz"
+    },
+    {
+      "Id": "C:\\dev\\.NET\\Asp.NET-Blazor\\Testes do WASM\\obj\\Debug\\net8.0\\scopedcss\\bundle\\Testes do WASM.styles.css",
+      "PackagePath": "staticwebassets\\Testes do WASM.styles.css"
+    },
+    {
+      "Id": "C:\\dev\\.NET\\Asp.NET-Blazor\\Testes do WASM\\wwwroot\\css\\app.css",
+      "PackagePath": "staticwebassets\\css\\app.css"
+    },
+    {
+      "Id": "C:\\dev\\.NET\\Asp.NET-Blazor\\Testes do WASM\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\dev\\.NET\\Asp.NET-Blazor\\Testes do WASM\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\dev\\.NET\\Asp.NET-Blazor\\Testes do WASM\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "C:\\dev\\.NET\\Asp.NET-Blazor\\Testes do WASM\\wwwroot\\icon-192.png",
+      "PackagePath": "staticwebassets\\icon-192.png"
+    },
+    {
+      "Id": "C:\\dev\\.NET\\Asp.NET-Blazor\\Testes do WASM\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "C:\\dev\\.NET\\Asp.NET-Blazor\\Testes do WASM\\wwwroot\\sample-data\\weather.json",
+      "PackagePath": "staticwebassets\\sample-data\\weather.json"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Testes do WASM.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.Testes do WASM.props",
+      "PackagePath": "build\\Testes do WASM.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.Testes do WASM.props",
+      "PackagePath": "buildMultiTargeting\\Testes do WASM.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.Testes do WASM.props",
+      "PackagePath": "buildTransitive\\Testes do WASM.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
