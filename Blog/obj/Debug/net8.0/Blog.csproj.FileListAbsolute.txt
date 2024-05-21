@@ -31,6 +31,7 @@ C:\dev\.NET\Asp.NET-Blazor\Blog\bin\Debug\net8.0\Microsoft.IdentityModel.Logging
 C:\dev\.NET\Asp.NET-Blazor\Blog\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
 C:\dev\.NET\Asp.NET-Blazor\Blog\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\dev\.NET\Asp.NET-Blazor\Blog\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+C:\dev\.NET\Asp.NET-Blazor\Blog\bin\Debug\net8.0\Microsoft.OpenApi.dll
 C:\dev\.NET\Asp.NET-Blazor\Blog\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
 C:\dev\.NET\Asp.NET-Blazor\Blog\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
 C:\dev\.NET\Asp.NET-Blazor\Blog\bin\Debug\net8.0\Mono.TextTemplating.dll
@@ -39,6 +40,9 @@ C:\dev\.NET\Asp.NET-Blazor\Blog\bin\Debug\net8.0\OneSignalApi.dll
 C:\dev\.NET\Asp.NET-Blazor\Blog\bin\Debug\net8.0\Polly.dll
 C:\dev\.NET\Asp.NET-Blazor\Blog\bin\Debug\net8.0\RestSharp.dll
 C:\dev\.NET\Asp.NET-Blazor\Blog\bin\Debug\net8.0\SecureIdentity.dll
+C:\dev\.NET\Asp.NET-Blazor\Blog\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\dev\.NET\Asp.NET-Blazor\Blog\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\dev\.NET\Asp.NET-Blazor\Blog\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\dev\.NET\Asp.NET-Blazor\Blog\bin\Debug\net8.0\System.CodeDom.dll
 C:\dev\.NET\Asp.NET-Blazor\Blog\bin\Debug\net8.0\System.Composition.AttributedModel.dll
 C:\dev\.NET\Asp.NET-Blazor\Blog\bin\Debug\net8.0\System.Composition.Convention.dll
@@ -122,6 +126,7 @@ C:\dev\.NET\Asp.NET-Blazor\Blog\obj\Debug\net8.0\Blog.GeneratedMSBuildEditorConf
 C:\dev\.NET\Asp.NET-Blazor\Blog\obj\Debug\net8.0\Blog.AssemblyInfoInputs.cache
 C:\dev\.NET\Asp.NET-Blazor\Blog\obj\Debug\net8.0\Blog.AssemblyInfo.cs
 C:\dev\.NET\Asp.NET-Blazor\Blog\obj\Debug\net8.0\Blog.csproj.CoreCompileInputs.cache
+C:\dev\.NET\Asp.NET-Blazor\Blog\obj\Debug\net8.0\Blog.MvcApplicationPartsAssemblyInfo.cs
 C:\dev\.NET\Asp.NET-Blazor\Blog\obj\Debug\net8.0\Blog.MvcApplicationPartsAssemblyInfo.cache
 C:\dev\.NET\Asp.NET-Blazor\Blog\obj\Debug\net8.0\Blog.sourcelink.json
 C:\dev\.NET\Asp.NET-Blazor\Blog\obj\Debug\net8.0\staticwebassets.build.json
@@ -138,8 +143,3 @@ C:\dev\.NET\Asp.NET-Blazor\Blog\obj\Debug\net8.0\refint\Blog.dll
 C:\dev\.NET\Asp.NET-Blazor\Blog\obj\Debug\net8.0\Blog.pdb
 C:\dev\.NET\Asp.NET-Blazor\Blog\obj\Debug\net8.0\Blog.genruntimeconfig.cache
 C:\dev\.NET\Asp.NET-Blazor\Blog\obj\Debug\net8.0\ref\Blog.dll
-C:\dev\.NET\Asp.NET-Blazor\Blog\bin\Debug\net8.0\Microsoft.OpenApi.dll
-C:\dev\.NET\Asp.NET-Blazor\Blog\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
-C:\dev\.NET\Asp.NET-Blazor\Blog\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-C:\dev\.NET\Asp.NET-Blazor\Blog\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\dev\.NET\Asp.NET-Blazor\Blog\obj\Debug\net8.0\Blog.MvcApplicationPartsAssemblyInfo.cs

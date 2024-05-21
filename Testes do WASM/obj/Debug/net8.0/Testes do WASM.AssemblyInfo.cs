@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Testes do WASM")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+26cadf9127d97f9c885f0f280a446ddf4ff19d70")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9a3ee2c39ede4fa9227fbe39c0ae9af9ea3b9ffa")]
 [assembly: System.Reflection.AssemblyProductAttribute("Testes do WASM")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Testes do WASM")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

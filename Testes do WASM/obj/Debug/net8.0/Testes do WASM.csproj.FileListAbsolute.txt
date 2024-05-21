@@ -1030,3 +1030,8 @@ C:\dev\.NET\Asp.NET-Blazor\Testes do WASM\obj\Debug\net8.0\Testes do WASM.dll
 C:\dev\.NET\Asp.NET-Blazor\Testes do WASM\obj\Debug\net8.0\refint\Testes do WASM.dll
 C:\dev\.NET\Asp.NET-Blazor\Testes do WASM\obj\Debug\net8.0\Testes do WASM.pdb
 C:\dev\.NET\Asp.NET-Blazor\Testes do WASM\obj\Debug\net8.0\ref\Testes do WASM.dll
+C:\dev\.NET\Asp.NET-Blazor\Testes do WASM\bin\Debug\net8.0\wwwroot\_framework\RestSharp.wasm
+C:\dev\.NET\Asp.NET-Blazor\Testes do WASM\bin\Debug\net8.0\wwwroot\_framework\RestSharp.wasm.gz
+C:\dev\.NET\Asp.NET-Blazor\Testes do WASM\bin\Debug\net8.0\RestSharp.dll
+C:\dev\.NET\Asp.NET-Blazor\Testes do WASM\obj\Debug\net8.0\webcil\RestSharp.wasm
+C:\dev\.NET\Asp.NET-Blazor\Testes do WASM\obj\Debug\net8.0\compressed\a8nntqow52.gz

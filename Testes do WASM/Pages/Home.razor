@@ -1,7 +1,83 @@
 ﻿@page "/"
-
+@using RestSharp
+@using Testes_do_WASM.Models
 <PageTitle>Home</PageTitle>
 
 <h1>Hello, world!</h1>
 
-Welcome to your new app.
+Testando o consumo de uma API externa.
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Nome</th>
+        <th></th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach(var item in items)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+            <td>
+                <button class="btn btn-info" @onclick="()=>GetAsync(item.Id)">EDIT</button>
+            </td>
+            <td>
+                <button class="btn btn-danger">DELETE</button>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+<form>
+    <div class="mb-3">
+            <label class="form-label">Id</label>
+            <input type="text" class="form-control" @bind="item.Id">
+        </div>
+    <div class="mb-3">
+        <label class="form-label">Title</label>
+        <input type="text" class="form-control" @bind="item.Name">
+    </div>
+    <button @onclick="PostAsync" type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+
+
+
+@code
+{
+
+    public  List<Item>? items = new();
+    Item item = new Item("coloque o nome aqui");
+    protected override async Task OnInitializedAsync()
+    {
+
+        var client = new RestClient();
+        var request = new RestRequest($"{Configuration.ApiUrl}/ITEMS");
+        items = await client.GetAsync<List<Item>>(request);
+    }
+
+    private async Task PostAsync()
+    {
+        
+        var client = new RestClient();
+
+        var resquest = new RestRequest($"{Configuration.ApiUrl}/items")
+        .AddJsonBody(item);
+
+        var createdItem = await client.PostAsync<Item?>(resquest);
+        if (createdItem is not null)
+        items.Add(createdItem);
+    }
+
+    public async Task GetAsync(int id)
+    {
+        var client = new RestClient();
+        var request = new RestRequest($"{Configuration.ApiUrl}/ITEMS/{id}");
+        items = await client.GetAsync<List<Item>?>(request);
+    }
+}

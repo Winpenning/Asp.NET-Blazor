@@ -12,6 +12,7 @@ public class BlogDataContext : DbContext
     }
     public DbSet<User> Users { get; set; }
     public DbSet<Post> Posts { get; set; }
+    public DbSet<Product> Products {get; set;}
     public DbSet<Category> Categories { get; set; }
     
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -19,5 +20,6 @@ public class BlogDataContext : DbContext
         modelBuilder.ApplyConfiguration(new UserMap());
         modelBuilder.ApplyConfiguration(new PostMap());
         modelBuilder.ApplyConfiguration(new CategoryMap());
+        modelBuilder.ApplyConfiguration(new ProductMap());
     }
 }

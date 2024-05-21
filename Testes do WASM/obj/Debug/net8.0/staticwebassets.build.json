@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "VjM1VsqxnmJscI08b4KsvePT43NXkjYNGgsLgLQsCw0=",
+  "Hash": "Uzlg5hRJrfUVH/VQelTnRprlgccVt5yLI2QIlPi8Hig=",
   "Source": "Testes do WASM",
   "BasePath": "/",
   "Mode": "Root",
@@ -775,6 +775,25 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\dev\\.NET\\Asp.NET-Blazor\\Testes do WASM\\obj\\Debug\\net8.0\\webcil\\netstandard.wasm"
+    },
+    {
+      "Identity": "C:\\dev\\.NET\\Asp.NET-Blazor\\Testes do WASM\\bin\\Debug\\net8.0\\wwwroot\\_framework\\RestSharp.wasm",
+      "SourceId": "Testes do WASM",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\dev\\.NET\\Asp.NET-Blazor\\Testes do WASM\\bin\\Debug\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/RestSharp.wasm",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "WasmResource",
+      "AssetTraitValue": "runtime",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\dev\\.NET\\Asp.NET-Blazor\\Testes do WASM\\obj\\Debug\\net8.0\\webcil\\RestSharp.wasm"
     },
     {
       "Identity": "C:\\dev\\.NET\\Asp.NET-Blazor\\Testes do WASM\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.AppContext.wasm",
@@ -4765,6 +4784,25 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\dev\\.NET\\Asp.NET-Blazor\\Testes do WASM\\bin\\Debug\\net8.0\\wwwroot\\_framework\\blazor.webassembly.js"
+    },
+    {
+      "Identity": "C:\\dev\\.NET\\Asp.NET-Blazor\\Testes do WASM\\obj\\Debug\\net8.0\\compressed\\a8nntqow52.gz",
+      "SourceId": "Testes do WASM",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\dev\\.NET\\Asp.NET-Blazor\\Testes do WASM\\bin\\Debug\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/RestSharp.wasm.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\dev\\.NET\\Asp.NET-Blazor\\Testes do WASM\\bin\\Debug\\net8.0\\wwwroot\\_framework\\RestSharp.wasm",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\dev\\.NET\\Asp.NET-Blazor\\Testes do WASM\\bin\\Debug\\net8.0\\wwwroot\\_framework\\RestSharp.wasm"
     },
     {
       "Identity": "C:\\dev\\.NET\\Asp.NET-Blazor\\Testes do WASM\\obj\\Debug\\net8.0\\compressed\\acdlg3nh6e.gz",
