@@ -38,6 +38,7 @@ C:\dev\.NET\Asp.NET-Blazor\Testes do WASM\bin\Debug\net8.0\wwwroot\_framework\Mi
 C:\dev\.NET\Asp.NET-Blazor\Testes do WASM\bin\Debug\net8.0\wwwroot\_framework\Microsoft.Win32.Registry.wasm
 C:\dev\.NET\Asp.NET-Blazor\Testes do WASM\bin\Debug\net8.0\wwwroot\_framework\mscorlib.wasm
 C:\dev\.NET\Asp.NET-Blazor\Testes do WASM\bin\Debug\net8.0\wwwroot\_framework\netstandard.wasm
+C:\dev\.NET\Asp.NET-Blazor\Testes do WASM\bin\Debug\net8.0\wwwroot\_framework\RestSharp.wasm
 C:\dev\.NET\Asp.NET-Blazor\Testes do WASM\bin\Debug\net8.0\wwwroot\_framework\System.AppContext.wasm
 C:\dev\.NET\Asp.NET-Blazor\Testes do WASM\bin\Debug\net8.0\wwwroot\_framework\System.Buffers.wasm
 C:\dev\.NET\Asp.NET-Blazor\Testes do WASM\bin\Debug\net8.0\wwwroot\_framework\System.Collections.Concurrent.wasm
@@ -248,6 +249,7 @@ C:\dev\.NET\Asp.NET-Blazor\Testes do WASM\bin\Debug\net8.0\wwwroot\_framework\Sy
 C:\dev\.NET\Asp.NET-Blazor\Testes do WASM\bin\Debug\net8.0\wwwroot\_framework\System.Text.Encoding.wasm.gz
 C:\dev\.NET\Asp.NET-Blazor\Testes do WASM\bin\Debug\net8.0\wwwroot\_framework\System.IO.Pipes.AccessControl.wasm.gz
 C:\dev\.NET\Asp.NET-Blazor\Testes do WASM\bin\Debug\net8.0\wwwroot\_framework\blazor.webassembly.js.gz
+C:\dev\.NET\Asp.NET-Blazor\Testes do WASM\bin\Debug\net8.0\wwwroot\_framework\RestSharp.wasm.gz
 C:\dev\.NET\Asp.NET-Blazor\Testes do WASM\bin\Debug\net8.0\wwwroot\_framework\Microsoft.AspNetCore.Components.Web.wasm.gz
 C:\dev\.NET\Asp.NET-Blazor\Testes do WASM\bin\Debug\net8.0\wwwroot\_framework\System.Xml.XmlDocument.wasm.gz
 C:\dev\.NET\Asp.NET-Blazor\Testes do WASM\bin\Debug\net8.0\wwwroot\_framework\System.Net.WebHeaderCollection.wasm.gz
@@ -431,6 +433,7 @@ C:\dev\.NET\Asp.NET-Blazor\Testes do WASM\bin\Debug\net8.0\Microsoft.Extensions.
 C:\dev\.NET\Asp.NET-Blazor\Testes do WASM\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
 C:\dev\.NET\Asp.NET-Blazor\Testes do WASM\bin\Debug\net8.0\Microsoft.JSInterop.dll
 C:\dev\.NET\Asp.NET-Blazor\Testes do WASM\bin\Debug\net8.0\Microsoft.JSInterop.WebAssembly.dll
+C:\dev\.NET\Asp.NET-Blazor\Testes do WASM\bin\Debug\net8.0\RestSharp.dll
 C:\dev\.NET\Asp.NET-Blazor\Testes do WASM\bin\Debug\net8.0\System.IO.Pipelines.dll
 C:\dev\.NET\Asp.NET-Blazor\Testes do WASM\bin\Debug\net8.0\Microsoft.CSharp.dll
 C:\dev\.NET\Asp.NET-Blazor\Testes do WASM\bin\Debug\net8.0\Microsoft.VisualBasic.Core.dll
@@ -638,6 +641,7 @@ C:\dev\.NET\Asp.NET-Blazor\Testes do WASM\obj\Debug\net8.0\webcil\Microsoft.Exte
 C:\dev\.NET\Asp.NET-Blazor\Testes do WASM\obj\Debug\net8.0\webcil\Microsoft.Extensions.Primitives.wasm
 C:\dev\.NET\Asp.NET-Blazor\Testes do WASM\obj\Debug\net8.0\webcil\Microsoft.JSInterop.wasm
 C:\dev\.NET\Asp.NET-Blazor\Testes do WASM\obj\Debug\net8.0\webcil\Microsoft.JSInterop.WebAssembly.wasm
+C:\dev\.NET\Asp.NET-Blazor\Testes do WASM\obj\Debug\net8.0\webcil\RestSharp.wasm
 C:\dev\.NET\Asp.NET-Blazor\Testes do WASM\obj\Debug\net8.0\webcil\System.IO.Pipelines.wasm
 C:\dev\.NET\Asp.NET-Blazor\Testes do WASM\obj\Debug\net8.0\webcil\Microsoft.CSharp.wasm
 C:\dev\.NET\Asp.NET-Blazor\Testes do WASM\obj\Debug\net8.0\webcil\Microsoft.VisualBasic.Core.wasm
@@ -844,6 +848,7 @@ C:\dev\.NET\Asp.NET-Blazor\Testes do WASM\obj\Debug\net8.0\compressed\cb8iwyk1u6
 C:\dev\.NET\Asp.NET-Blazor\Testes do WASM\obj\Debug\net8.0\compressed\qu06ksg27s.gz
 C:\dev\.NET\Asp.NET-Blazor\Testes do WASM\obj\Debug\net8.0\compressed\362fgdsx7l.gz
 C:\dev\.NET\Asp.NET-Blazor\Testes do WASM\obj\Debug\net8.0\compressed\wdnqetq3sa.gz
+C:\dev\.NET\Asp.NET-Blazor\Testes do WASM\obj\Debug\net8.0\compressed\a8nntqow52.gz
 C:\dev\.NET\Asp.NET-Blazor\Testes do WASM\obj\Debug\net8.0\compressed\dnzt3eo1gm.gz
 C:\dev\.NET\Asp.NET-Blazor\Testes do WASM\obj\Debug\net8.0\compressed\yorcbxbo3r.gz
 C:\dev\.NET\Asp.NET-Blazor\Testes do WASM\obj\Debug\net8.0\compressed\s7ptd9i3yh.gz
@@ -1030,8 +1035,3 @@ C:\dev\.NET\Asp.NET-Blazor\Testes do WASM\obj\Debug\net8.0\Testes do WASM.dll
 C:\dev\.NET\Asp.NET-Blazor\Testes do WASM\obj\Debug\net8.0\refint\Testes do WASM.dll
 C:\dev\.NET\Asp.NET-Blazor\Testes do WASM\obj\Debug\net8.0\Testes do WASM.pdb
 C:\dev\.NET\Asp.NET-Blazor\Testes do WASM\obj\Debug\net8.0\ref\Testes do WASM.dll
-C:\dev\.NET\Asp.NET-Blazor\Testes do WASM\bin\Debug\net8.0\wwwroot\_framework\RestSharp.wasm
-C:\dev\.NET\Asp.NET-Blazor\Testes do WASM\bin\Debug\net8.0\wwwroot\_framework\RestSharp.wasm.gz
-C:\dev\.NET\Asp.NET-Blazor\Testes do WASM\bin\Debug\net8.0\RestSharp.dll
-C:\dev\.NET\Asp.NET-Blazor\Testes do WASM\obj\Debug\net8.0\webcil\RestSharp.wasm
-C:\dev\.NET\Asp.NET-Blazor\Testes do WASM\obj\Debug\net8.0\compressed\a8nntqow52.gz

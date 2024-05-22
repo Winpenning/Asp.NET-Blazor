@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "DeD3vJjBRWmU1jZU8seS3j55mOMxFkna8f8kSebyBwgsvY1CKnfa0gpt9Lb1zVVNnTqSter39osAr0PkNPX9lA==",
+  "dgSpecHash": "lfu3CdRZVRgHTcBUuh4hdlAxR7r+KwSO7GmiD+nPqBP+U0FlQYmrZVae6ZoQqRd7fWhkkRzgPpc9j6u7sokoxA==",
   "success": true,
   "projectFilePath": "C:\\dev\\.NET\\Asp.NET-Blazor\\Testes do WASM\\Testes do WASM.csproj",
   "expectedPackageFiles": [

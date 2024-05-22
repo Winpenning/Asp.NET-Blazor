@@ -3,7 +3,7 @@
 @using Testes_do_WASM.Models
 <PageTitle>Home</PageTitle>
 
-<h1>Hello, world!</h1>
+<h1>Sistema de Gerenciamento</h1>
 
 Testando o consumo de uma API externa.
 
@@ -32,27 +32,28 @@ Testando o consumo de uma API externa.
     }
     </tbody>
 </table>
-<form>
-    <div class="mb-3">
-            <label class="form-label">Id</label>
-            <input type="text" class="form-control" @bind="item.Id">
-        </div>
-    <div class="mb-3">
-        <label class="form-label">Title</label>
-        <input type="text" class="form-control" @bind="item.Name">
-    </div>
-    <button @onclick="PostAsync" type="submit" class="btn btn-primary">Submit</button>
-</form>
 
-
-
-
-
+    <hr>
+<input type="hidden" class="form-control" @bind="item.Id"/>
+<div class="mb-3">
+    <label class="form-label">Title</label>
+    <input type="text" class="form-control" @bind="item.Name"/>
+</div>
+<button class="btn btn-primary" @onclick="UpsertAsync">
+@if (item.Id is not 0)
+    {
+        <span>SAVE</span>
+    }
+    else
+    {
+        <span>CREATE</span>
+    }
+</button>
 @code
 {
 
     public  List<Item>? items = new();
-    Item item = new Item("coloque o nome aqui");
+    public Item? item = new();
     protected override async Task OnInitializedAsync()
     {
 
@@ -61,23 +62,36 @@ Testando o consumo de uma API externa.
         items = await client.GetAsync<List<Item>>(request);
     }
 
-    private async Task PostAsync()
+    private async Task UpsertAsync()
     {
-        
         var client = new RestClient();
 
-        var resquest = new RestRequest($"{Configuration.ApiUrl}/items")
-        .AddJsonBody(item);
-
-        var createdItem = await client.PostAsync<Item?>(resquest);
-        if (createdItem is not null)
-        items.Add(createdItem);
+        if (item?.Id == 0)
+        {
+            var request = new RestRequest($"{Configuration.ApiUrl}/items")
+                .AddJsonBody(item);
+            var createItem = await client.PostAsync<Item?>(request);
+            if (createItem is not null)
+            {
+                items?.Add(createItem);
+                item = new();
+            }
+        }
+        else
+        {
+            var request = new RestRequest($"{Configuration.ApiUrl}/items/{item?.Id}")
+                .AddJsonBody(item);
+            await client.PutAsync<Item?>(request);
+            var updateItem = items?.FirstOrDefault(x => x.Id == item?.Id);
+            if (updateItem is not null)
+                updateItem.Name = item.Name;
+        }
     }
 
     public async Task GetAsync(int id)
     {
         var client = new RestClient();
         var request = new RestRequest($"{Configuration.ApiUrl}/ITEMS/{id}");
-        items = await client.GetAsync<List<Item>?>(request);
+        item = await client.GetAsync<Item>(request);
     }
 }
