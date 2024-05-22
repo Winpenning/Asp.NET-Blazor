@@ -54,6 +54,7 @@ public class ItemControler : ControllerBase
 
         try{
             context.Items.Update(updatedItem);
+            await context.SaveChangesAsync();
             return Ok(updatedItem);
         }
         catch(Exception e){
