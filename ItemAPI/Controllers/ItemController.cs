@@ -62,4 +62,17 @@ public class ItemControler : ControllerBase
         }
 
     }
+
+    [HttpDelete][Route("{id:int}")]
+    public async Task<IActionResult> DeleteAsync
+    ([FromServices] AppDataContext context, [FromRoute] int id)
+    {
+        Item? deletedItem = await context.Items.FirstOrDefaultAsync(x=>x.Id==id);
+        if(deletedItem is null)
+            return NotFound();
+        context.Items.Remove(deletedItem);
+        await context.SaveChangesAsync();
+        return Ok(deletedItem);
+    }
+
 }

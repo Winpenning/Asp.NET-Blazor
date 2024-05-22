@@ -25,9 +25,6 @@ Testando o consumo de uma API externa.
             <td>
                 <button class="btn btn-info" @onclick="()=>GetAsync(item.Id)">EDIT</button>
             </td>
-            <td>
-                <button class="btn btn-danger">DELETE</button>
-            </td>
         </tr>
     }
     </tbody>
@@ -39,8 +36,17 @@ Testando o consumo de uma API externa.
     <label class="form-label">Title</label>
     <input type="text" class="form-control" @bind="item.Name"/>
 </div>
+
+@if (_deleted)
+{
+    <div class="alert alert-danger" role="alert">
+        Item deleted!
+    </div>
+}
+
+
 <button class="btn btn-primary" @onclick="UpsertAsync">
-@if (item.Id is not 0)
+    @if (item.Id is not 0)
     {
         <span>SAVE</span>
     }
@@ -49,17 +55,24 @@ Testando o consumo de uma API externa.
         <span>CREATE</span>
     }
 </button>
+
+@if (item.Id != 0)
+{
+    <button class="btn btn-danger" @onclick="DeleteAsync">DELETE</button>
+}
+
 @code
 {
-
-    public  List<Item>? items = new();
-    public Item? item = new();
+    private bool _deleted;
+    private  List<Item>? items = new();
+    private Item? item = new();
     protected override async Task OnInitializedAsync()
     {
 
         var client = new RestClient();
         var request = new RestRequest($"{Configuration.ApiUrl}/ITEMS");
         items = await client.GetAsync<List<Item>>(request);
+        _deleted = false;
     }
 
     private async Task UpsertAsync()
@@ -86,6 +99,7 @@ Testando o consumo de uma API externa.
             if (updateItem is not null)
                 updateItem.Name = item.Name;
         }
+        _deleted = false;
     }
 
     public async Task GetAsync(int id)
@@ -93,5 +107,14 @@ Testando o consumo de uma API externa.
         var client = new RestClient();
         var request = new RestRequest($"{Configuration.ApiUrl}/ITEMS/{id}");
         item = await client.GetAsync<Item>(request);
+        _deleted = false;
+    }
+
+    public async Task DeleteAsync()
+    {
+        var client = new RestClient();
+        var request = new RestRequest($"{Configuration.ApiUrl}/ITEMS/{item?.Id}");
+        item = await client.DeleteAsync<Item?>(request);
+        _deleted = true;
     }
 }
