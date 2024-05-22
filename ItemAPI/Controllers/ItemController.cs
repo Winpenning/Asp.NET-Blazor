@@ -34,9 +34,31 @@ public class ItemControler : ControllerBase
     }
 
     [HttpGet("{id:int}")]
-    public async Task<IActionResult> GetByIdAsync([FromServices]  AppDataContext context, [FromRoute] int id){
+    public async Task<IActionResult> GetByIdAsync
+    ([FromServices]  AppDataContext context, [FromRoute] int id){
         Item  item = new Item();
         item = await context.Items.AsNoTracking().FirstOrDefaultAsync(x=> x.Id == id);
         return StatusCode(200,item);
+    }
+
+    [HttpPut][Route("{id:int}")]
+    public async Task<IActionResult> PutAsync
+    ([FromServices] AppDataContext context, [FromRoute] int id, [FromBody] Item item)
+    {
+         Item updatedItem = await context.Items.FirstOrDefaultAsync(x=> x.Id == id); 
+
+        if(item is not null)
+            updatedItem.Name = item.Name;
+        else
+            return StatusCode(500);
+
+        try{
+            context.Items.Update(updatedItem);
+            return Ok(updatedItem);
+        }
+        catch(Exception e){
+            return StatusCode(500, e);
+        }
+
     }
 }
